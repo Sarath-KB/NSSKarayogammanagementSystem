@@ -1,0 +1,77 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+    <table align="center" border="1" cellpadding="10" style="border-collapse: collapse;">
+        <center><h1>Scholarship Report</h1></center>
+        <tr>
+            <td>From Date</td>
+            <td><input type="date" name="fdate" id=""></td>
+            <td>To Date</td>
+            <td><input type="date" name="edate" id=""></td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><input type="submit" value="Show Result" name="result"></td>
+        </tr>
+    </table>
+<br><br><br>
+    <table id="productTable" align="center" cellpadding="10" border="1">
+        <thead>
+            {% for i in data %}
+            <tr>
+                <th>Sl.no</th>
+                <th>Name of Applicant</th>
+                <th>Contact</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>{{ forloop.counter}}</td>
+                <td>{{ i.member_name.member_name }}</td>
+                <td>{{ i.member_name.contact }}</td>
+                <td>{{ i.member_name.email }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    {% endfor %}
+    <br><br><br>
+    <table id="productTable" align="center" cellpadding="10" border="1">
+        <thead>
+            {% for i in data1 %}
+            <tr>
+                <th>Sl.no</th>
+                <th>Name of Applicant</th>
+                <th>Contact</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>{{ forloop.counter}}</td>
+                <td>{{ i.relative_name.relative_name }}</td>
+                <td>{{ i.relative_name.contact }}</td>
+                <td>{{ i.relative_name.email }}</td>
+            </tr>
+          
+        </tbody>
+    </table>
+    {% endfor %}
+
+</body>
+</html>
+{% endblock content %}

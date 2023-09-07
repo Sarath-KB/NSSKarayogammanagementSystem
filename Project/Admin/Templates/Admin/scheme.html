@@ -1,0 +1,56 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab">
+    <form method="post" action="" >
+        {% csrf_token %}
+        <table border="2" align="center" cellpadding="10" style="border-collapse: collapse;">
+            <center><h1>Scheme</h1></center>
+            <tr>
+                <td>Scheme</td>
+                <td><input type="text" name="txt_scheme"value="{{edit.scheme_name}}" required="" autocomplete="off"></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2" align="center">      
+               <input type="submit" name="save" value="Save">
+               <input type="reset" name="cancel" value="Cancel">
+               </td>
+           </tr>
+        </table>
+        <br><br>
+        <table  border="2" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Scheme Name</td>
+                <td>Action</td>
+            </tr>
+           {% for i in scheme %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.scheme_name}}</td>
+            
+            <td><a href="{% url 'Admin:deletescheme' i.id %}">Delete</a>|<a href="{% url 'Admin:editscheme' i.id%}">Edit</a></td></td>
+        </tr>
+        {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <table align="center" cellpadding="10">
+            <tr>
+                {% for i,j in data %}
+                <td>
+                    <div style="border:1px solid black;margin:20px;padding:10px">
+                        <p><img src="{{i.member_name.photo.url}}" width="150" height="150"></p>
+                      <p>Name : {{i.member_name.member_name}}</p>
+                       <p> Position : {{i.election_position.election_position}}</p>
+                       <p>{{j}}</p>
+                       
+                           </div>
+        </td>
+        {% if forloop.counter|divisibleby:4 %}
+        </tr>
+        <tr>
+
+            {% endif %}
+            {% endfor %}
+            </table>
+   </form>
+</body>
+</html>
+{% endblock content %}

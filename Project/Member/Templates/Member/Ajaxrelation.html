@@ -1,0 +1,21 @@
+{% if rdata %}
+
+
+    
+        {% for i in rdata %}
+        <option value="{{i.id}}">{{i.relative_name}}</option>
+        {% endfor %}
+
+
+{% endif %}
+
+
+{% if adata %}
+
+
+    
+       
+        <option value="{{adata.id}}">{{adata.member_name}}</option>
+       
+
+{% endif %}

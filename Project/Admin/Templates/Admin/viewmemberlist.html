@@ -1,0 +1,65 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+   
+
+
+    
+        <table  align="center" cellpadding="10">
+            <center><h1>Member List</h1></center>
+        <tr>
+            {% for i in mdata %}
+            <td>
+                <div style="border:1px solid black;margin:20px;padding:10px">
+                <p><img src="{{i.photo.url}}" width="150" height="150"></p>
+                  <p>Name : {{i.member_name}}</p>
+                   <p>Age : {{i.age}}</p>
+                   <p>Contact: {{i.contact}}</p>
+                   <p>Email: {{i.email}}</p>
+                   <p>Address: {{i.address}}</p>
+                   <p>Gender: {{i.gender}}</p>
+                   <p>Place: {{i.place.place_name}}</p>
+                   <p><a href="{% url 'Admin:rlist' i.id %}">View relatives</a></p>
+
+                   <p><a href="{% url 'Admin:resetpassword' i.id %}">Reset password</a></p>
+
+                   {% if i.inactive == 0 %}
+                   <p><a href="{% url 'Admin:deletemember' i.id %}">Remove</a>  ||  <a href="{% url 'Admin:passedmember' i.id %}">Passed away</a></p>
+                    {% elif i.inactive == 2 %}
+                    <p style="color: red;">This member is removed.</p>
+                    {% elif i.inactive == 3 %}
+                    <p style="color: red;">This member is passed away.</p>
+                    {% endif %}
+                  
+                       </div>
+    </td>
+    {% if forloop.counter|divisibleby:2 %}  
+    </tr>
+    <tr>
+
+        {% endif %}
+        {% endfor %}
+        </table>
+
+    </form>
+</body>
+</html>
+{% endblock content %}

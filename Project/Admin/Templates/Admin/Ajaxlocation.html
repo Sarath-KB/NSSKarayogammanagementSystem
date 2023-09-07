@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   
+    <option value="">-----Select-----</option>
+    {% for i in place %}
+    <option value="{{i.id}}">{{i.place_name}}</option>
+    {% endfor %}

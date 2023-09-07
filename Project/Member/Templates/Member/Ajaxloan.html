@@ -1,0 +1,18 @@
+<table id="ln">
+    <tr>
+        {% for i in loanname %}
+        <td>
+            <div style="border:1px solid black;margin:20px;padding:10px">
+               <p>Loan Name : {{i.loan_name}}</p>
+               <p>Loan Details : {{i.loan_details}}</p>
+               <p>Loan Type : {{i.loan_type.loan_name}}</p>
+               <p><a href="{% url 'Member:loanapply' i.id %}">Apply</a></p>
+                   </div>
+</td>
+{% if forloop.counter|divisibleby:4 %}
+</tr>
+<tr>
+
+    {% endif %}
+    {% endfor %}
+    </table>

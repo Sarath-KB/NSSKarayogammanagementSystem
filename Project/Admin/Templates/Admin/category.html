@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Category</td>
+                <td><input type="text" name="category"value="{{edit.category_name}}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="save" value="Save">
+                    <input type="submit" name="cancel" value="cancel">
+
+                </td>
+            </tr>
+        </table>
+        <table border="1">
+            <tr>
+                <td>Sl.no</td>
+                <td>Category</td>
+                <td>Action</td>
+            </tr>
+         
+            {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.category_name}}</td>
+            <td><a href="{% url 'Admin:delcat' i.id%}">Delete</a>|<a href="{% url 'Admin:catedit' i.id%}">Edit</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+    </form>
+</body>
+</html>

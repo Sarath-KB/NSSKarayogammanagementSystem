@@ -1,0 +1,43 @@
+{% extends 'Finance/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Name</td>
+                <td>Contact</td>
+                <td>Email</td>
+                <td>Monthly Collection Amount</td>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.member_name.member_name}}</td>
+                <td>{{i.member_name.contact}}</td>
+                <td>{{i.member_name.email}}</td>
+                <td>{{i.monthlycollection_id.amount}}</td>
+                
+            </tr>
+            {% endfor %}
+            </table>
+    </form>
+</body>
+</html>
+{% endblock content %}

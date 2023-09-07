@@ -1,0 +1,71 @@
+{% extends 'Finance/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="" >
+        {% csrf_token %}
+        <table border="2" align="center" cellpadding="10" style="border-collapse: collapse;">
+            <center><h1>Add loan name</h1></center>
+            <tr>
+                <td> Loan Name</td>
+                <td><input type="text" name="txt_name"value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Details</td>
+                <td><input type="text" name="details"value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Loan Type</td>
+                <td><select name="loan_type">
+                <option value="">----select----</option>
+                {% for i in loan %}
+                <option value="{{i.id}}">{{i.loan_name}}</option>
+                {% endfor %}
+                </select></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">      
+               <input type="submit" name="save" value="Save">
+               <input type="reset" name="cancel" value="Cancel">
+               </td>
+           </tr>
+        </table>
+<br><br>
+        <table border="1" cellpadding="10" align="center">
+            <tr>
+                <td>Sl.no</td>
+                <td>Loan Name</td>
+                <td>Loan Details</td>
+                <td>Loan Type</td>
+                <td>Action</td>
+            </tr>
+
+            {% for i in loanname %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.loan_name}}</td>
+            <td>{{i.loan_details}}</td>
+            <td>{{i.loan_type.loan_name}}</td>
+            <td><a href="{% url 'Finance:deleteloanname' i.id %}">Delete</a>|<a href="{% url 'Finance:loancalender' i.id %}">Monthly payment calender</a>|<a href="{% url 'Finance:loanreport' i.id %}">Report</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+        </form>
+</body>
+</html>
+{% endblock content %}

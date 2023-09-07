@@ -1,0 +1,45 @@
+{% extends 'Finance/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Member Name</td>
+                <td>Contact</td>
+                <td>Email</td>
+                <td>Loan Name</td>
+                <td>Status</td>
+            </tr>
+
+            {% for i in rejectlist %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.member_name.member_name}}</td>
+            <td>{{i.member_name.contact}}</td>
+            <td>{{i.member_name.email}}</td>
+            <td>{{i.loan_name.loan_name}}</td>
+            <td>{{i.status}}</td>    
+        </tr>
+        {% endfor %}
+        </table>
+        </form>
+</body>
+</html>
+{% endblock content %}

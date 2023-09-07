@@ -1,0 +1,74 @@
+
+{% extends 'Finance/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        
+        {% csrf_token %}
+        <table border="2" align="center" cellpadding="10" style="border-collapse: collapse;">
+            <center><h1>Add loan calendar</h1></center>
+            <tr>
+                <td>Monthly payment amount</td>
+                <td><input type="text" name="txt_rs" value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Loan start date</td>
+                <td><input type="date" name="sdate" value=""></td>
+            </tr>
+            <tr>
+                <td>Loan end date</td>
+                <td><input type="date" name="edate" value=""></td>
+            </tr>
+            
+            <tr>
+                <td>No of installments</td>
+                <td><input type="text" name="txt_in" value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">      
+               <input type="submit" name="save" value="Save">
+               <input type="reset" name="cancel" value="Cancel">
+               </td>
+           </tr>
+        </table>
+<br><br>
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Loan Name</td>
+                <td>Loan Type</td>
+                <td>Amount</td>
+                <td>Number of installment</td>
+                <td>Action</td>
+            </tr>
+           {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.loan_name.loan_name}}</td>
+            <td>{{i.loan_name.loan_type.loan_name}}</td>
+            <td>{{i.amount}}</td>
+            <td>{{i.no_installment}}</td>
+            <td><a href="{% url 'Finance:deleteloancalender' i.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+        </form>
+</body>
+</html>
+{% endblock content %}

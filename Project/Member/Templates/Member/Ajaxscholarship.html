@@ -1,0 +1,19 @@
+<table id="sn">
+    <tr>
+        {% for i in sndata %}
+        <td>
+            <div style="border:1px solid black;margin:20px;padding:10px">
+               <p>Scholarship Name : {{i.scholarship_name}}</p>
+               <p>Scholarship Details : {{i.scholarship_details}}</p>
+               <p>Scholarship Type : {{i.scholarship_type.scholarship_type}}</p>
+               <p>Proof Type : {{i.proof_name.proof_name}}</p>
+               <p><a href="{% url 'Member:scholarshipapply' i.id %}">Apply</a></p>
+                   </div>
+</td>
+{% if forloop.counter|divisibleby:4 %}
+</tr>
+<tr>
+
+    {% endif %}
+    {% endfor %}
+    </table>

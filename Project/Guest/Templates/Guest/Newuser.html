@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" id="user" action="" data-place-url="{%url 'Guest:Ajaxplace' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table border="2" align="center">
+        
+    <tr>
+        <td>Name</td>
+        <td><input type="text" name="txt_name" value=""></td>
+    </tr>
+    <tr>
+        <td>Contact</td>
+        <td><input type="text" name="txt_contact" value=""></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="email" name="txt_email" value=""></td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td><input type="textarea" name="txt_address" value=""></td>
+    </tr>
+    <tr>
+        <td>District</td>
+        <td><select name="district" id="dist">
+        <option value="">----select----</option>
+        {% for i in district %}
+        <option value="{{i.id}}">{{i.district_name}}</option>
+        {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <td>Place</td>
+        <td><select name="place" id="place">
+        <option value="">----select----</option>
+        {% for i in place %}
+        <option value="{{i.id}}">{{i.place_name}}</option>
+        {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+       <td>Male<input type="radio" name="gender" value="Male">
+       Female<input type="radio" name="gender" value="Female"></td>
+    </tr>
+    <tr>
+        <td>Photo</td>
+        <td><input type="file" name="photo" value=""></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password" name="pass" value=""></td>
+    </tr>
+    <tr>
+        <td>Confirm Password</td>
+        <td><input type="password" name="conpass" value=""></td>
+    </tr>
+    <tr>
+         <td colspan="2" align="center">      
+        <input type="submit" name="save" value="Save">
+        <input type="submit" name="cancel" value="Cancel">
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#dist").change(function () {
+        var did = $(this).val();
+        var ur = $("#user").attr("data-place-url");
+        $.ajax({
+            url: ur,
+            data: { disd: did, },
+            success: function (data) {
+                $("#place").html(data);
+            },
+        });
+    });
+</script>

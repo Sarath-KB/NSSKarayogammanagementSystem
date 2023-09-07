@@ -1,0 +1,84 @@
+{% extends 'Finance/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% if acceptlist %}
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Member Name</td>
+                <td>Contact</td>
+                <td>Email</td>
+                <td>Chitty Name</td>
+                <td>Status</td>
+            </tr>
+            {% for i in acceptlist %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.memberdata.member_name}}</td>
+        <td>{{i.memberdata.contact}}</td>
+        <td>{{i.memberdata.email}}</td>
+        <td>{{i.chittydata.chitty_name}}</td>
+        <td>
+            
+                {% if i.status == 1 %}
+               <P> Accepted |<a href="{% url 'Finance:chittygrant' i.id %}">Grant</a></P>
+                {% else %}
+                <P> Granted | <a href="{% url 'Finance:viewchittypay' i.id %}">View Repayments</a></P>
+                {% endif %}
+        </td>    
+    </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+<br><br>
+    {% if acceptlist1 %}
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Relative Name</td>
+                <td>Contact</td>
+                <td>Email</td>
+                <td>Chitty Name</td>
+                <td>Status</td>
+            </tr>
+    {% for i in acceptlist1 %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.relative.relative_name}}</td>
+        <td>{{i.relative.contact}}</td>
+        <td>{{i.relative.email}}</td>
+        <td>{{i.chittydata.chitty_name}}</td>
+        <td>
+            
+                {% if i.status == 1 %}
+               <P> Accepted |<a href="{% url 'Finance:chittygrant' i.id %}">Grant</a></P>
+                {% else %}
+                <P> Granted | <a href="{% url 'Finance:viewchittypay' i.id %}">View Repayments</a></P>
+                {% endif %}
+        </td>    
+    </tr>
+    {% endfor %}
+
+    </table>
+    {% endif %}
+    </form>
+</body>
+</html>
+{% endblock content %}

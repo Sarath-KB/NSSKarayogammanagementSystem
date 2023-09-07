@@ -1,0 +1,44 @@
+{% extends 'Finance/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <th>Sl.No</th>
+                <th>Payment Amount</th>
+                <th>Payment Status</th>
+            </tr>
+            {% for i in array %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{paynumber.amount}}</td>
+                <td>{% if i <= data %}
+                    <p>Payment Completed</p>
+                    {% else %}
+                    <p>Due Date  in 2 Days</p>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+</body>
+</html>
+{% endblock content %}

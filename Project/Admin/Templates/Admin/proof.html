@@ -1,0 +1,54 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab">
+    <form action="" method="post" >
+        {% csrf_token %}
+    <table border="1" align="center" cellpadding="10" style="border-collapse: collapse;">
+    <tr>
+        <td>Proof Type</td>
+        <td>
+        <input type="text" name="txt_proof" value="{{edit.proof_name}}" required="" autocomplete="off"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"> 
+        <input type="submit" name="save" value="Save">
+        <input type="reset" name="cancel" value="Cancel">
+    </tr>
+</table>
+<br><br>
+    <table border="1"  align="center" cellpadding="10" >
+        <tr>
+            <td>Sl.no</td>
+            <td>Proof Type</td>
+            <td>Action</td>
+        </tr>
+       {% for i in proof %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.proof_name}}</td>
+        <td><a href="{% url 'Admin:deleteproof' i.id %}">Delete</a>|<a href="{% url 'Admin:editproof' i.id %}">Edit</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+</form>
+</div>
+</body>
+</html>
+{% endblock content %}

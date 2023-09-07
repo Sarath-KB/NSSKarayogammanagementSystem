@@ -1,0 +1,79 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table border="1" align="center" cellpadding="10" style="border-collapse: collapse;">
+            
+            <tr>
+                <td>Scholarship Type</td>
+                <td><select name="stype">
+                <option value="">----select----</option>
+                {% for i in data %}
+                <option value="{{i.id}}">{{i.scholarship_type}}</option>
+                {% endfor %}
+                </select></td>
+            </tr>
+            <tr>
+                <td>Scholarship Name</td>
+                <td><input type="text" name="txt_sname" value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Scholarship Details</td>
+                <td><input type="text" name="txt_details" value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Proof Type</td>
+                <td><select name="ptype">
+                <option value="">----select----</option>
+                {% for i in pdata %}
+                <option value="{{i.id}}">{{i.proof_name}}</option>
+                {% endfor %}
+                </select></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2" align="center"> 
+            <input type="submit" name="save" value="Save">
+            <input type="reset" name="cancel" value="Cancel">
+        </tr>
+        
+        </table>
+        <br><br>
+        <table border="1"  align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Scholarship Type</td>
+                <td>Scholarship Name</td>
+                <td>Scholarship Details</td>
+                <td>Action</td>
+            </tr>
+           {% for i in sndata %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.scholarship_type.scholarship_type}}</td>
+            <td>{{i.scholarship_name}}</td>
+            <td>{{i.scholarship_details}}</td>
+            <td><a href="{% url 'Admin:deletescholarshipname' i.id %}">Delete</a>||<a href="{% url 'Admin:scholarshipreport' i.id %}">Report</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+    </form>
+</body>
+</html>
+{% endblock content %}

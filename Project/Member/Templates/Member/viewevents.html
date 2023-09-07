@@ -1,0 +1,272 @@
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>NSS Karayogam 4746</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'Member/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'Member/assets/css/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'Member/assets/css/templatemo-edu-meeting.css'%}">
+    <link rel="stylesheet" href="{% static 'Member/assets/css/owl.css'%}">
+    <link rel="stylesheet" href="{% static 'Member/assets/css/lightbox.css'%}">
+<!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
+  </head>
+
+<body>
+
+  <!-- Sub Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+           
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <!-- <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky" style="background-color: gray;">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="index.html" class="logo">
+                        എൻഎസ്എസ് കരയോഗം 4746
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+
+                      {% if data3 %}
+                      <marquee class="marq" color="red" behavior="scroll" direction="rigth"> New Election :
+                          {% for i in data3 %}
+                          <a href="{% url 'Member:viewelection' i.id %}">&nbsp;{{i.title}}&nbsp;&nbsp;</a>
+                          {% endfor %}
+                      </marquee>
+                      {% endif %}
+
+                      <ul class="nav">
+                        <li><a href="{% url 'Member:homepage' %}">Home</a></li>
+                          <!-- <li><a href="meetings.html">Meetings</a></li> -->
+                          <li class="has-sub">
+                            <a href="javascript:void(0)">Collection &Events</a>
+                            <ul class="sub-menu">
+                              {% if data.gender == "Female" or data1.gender == "Female" %}
+                                <li><a href="{% url 'Member:viewweeklycollection'  %}">View Weekly Collection</a></li>
+                                {% endif %}
+                                {% if data1 %} 
+                                <li><a href="{% url 'Member:viewmonthlycollection' %}">Monthly Collection Deatils</a></li>
+                                {% endif %}
+                                <li><a href="{% url 'Member:viewevents' %}">View Events</a></li>
+                            </ul>
+                        </li>
+                          <!-- <li class="scroll-to-section"><a href="#apply">Apply Now</a></li> -->
+                          <li class="has-sub">
+                            <a href="javascript:void(0)">Scholarship</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'Member:scholarshipview' %}">details</a></li>
+                                <li><a href="{% url 'Member:scholarshipstatus' %}">Status</a></li>
+                              
+                            </ul>
+                        </li>
+                          <li class="has-sub">
+                            <a href="javascript:void(0)">ചിട്ടി</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'Member:chittyview' %}">വിവരങ്ങൾ</a></li>
+                                <li><a href="{% url 'Member:chittystatusview' %}">Status</a></li>
+                                <li><a href="{% url 'Member:chittyfunding' %}">Chitty</a></li>
+                                <li><a href="{% url 'Member:chittyfundingstatusview' %}"> Chitty Status</a></li>
+                              
+                            </ul>
+                        </li>
+                        {% if data1 %} 
+                        <li class="has-sub">
+                          <a href="javascript:void(0)">Loan</a>
+                          <ul class="sub-menu">
+                              <li><a href="{% url 'Member:loanview' %}">View Loan</a></li>
+                              <li> <a href="{% url 'Member:loanstatusview' %}">Loan Status</a></li>
+                            <li></li>
+                          </ul>
+                      </li>
+                      {% endif %}
+
+                      {% if data1 %} 
+                        <li class="has-sub">
+                          <a href="javascript:void(0)">Relative Add</a>
+                          <ul class="sub-menu">
+                              <li><a href="{% url 'Member:relatives' %}">Add</a></li>
+                             
+                            <li></li>
+                          </ul>
+                      </li>
+                      {% endif %}
+
+                      <li class="has-sub">
+                        <a href="javascript:void(0)">Complaint & Feedback</a>
+                        <ul class="sub-menu">
+                            <li><a href="{% url 'Member:complaint' %}">Complaint</a></li>
+                            <li><a href="{% url 'Member:feedback' %}">Feedback</a></li>
+                           
+                          <li></li>
+                        </ul>
+                    </li>
+
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">Account</a>
+                              <ul class="sub-menu">
+                                  <li><a href="{% url 'Member:myprofile' %}">Account Info</a></li>
+                                  <li><a href="{% url 'Member:changepassword' %}">Change Password</a></li>
+                                  <li><a href="{% url 'Member:editprofile' %}">Edit Profile</a></li>
+                                  <li><a href="{% url 'Member:logout' %}">Logout</a></li>
+                              </ul>
+                          </li>
+                          <!-- <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
+                          <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>  -->
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+  <br> <br> <br> <br> <br> <br> <br>
+  <!-- ***** Header Area End ***** -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        <table cellpadding="10" style="border-collapse: collapse; margin-top: 200px" align="center">
+            <tr>
+                {% for i in datas %}
+                <td>
+                    <div style="border:1px solid black;margin:20px;padding:10px">
+                    
+                      <p>Title : {{i.name}}</p>
+                       <p>Details : {{i.details}}</p>
+                       <p>Event Date :{{i.event_date}} </p>
+                       
+                       
+                    </div>
+                </td>
+                {% if forloop.counter|divisibleby:4 %} 
+            </tr>
+            {% endif %}
+            {% endfor %}
+            </table>
+            </form>
+</body>
+</html>
+<br> <br> <br> <br> <br> <br> <br> <br> <br>
+<div class="footer">
+    <!-- <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
+        <br>
+        Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+        <br>
+        Distibuted By: <a href="https://themewagon.com" target="_blank" title="Build Better UI, Faster">ThemeWagon</a>
+      </p> -->
+  </div>
+</section>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+  <script src="{% static 'Member/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'Member/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+  <script src="{% static 'Member/assets/js/isotope.min.js'%}"></script>
+  <script src="{% static 'Member/assets/js/owl-carousel.js'%}"></script>
+  <script src="{% static 'Member/assets/js/lightbox.js'%}"></script>
+  <script src="{% static 'Member/assets/js/tabs.js'%}"></script>
+  <script src="{% static 'Member/assets/js/video.js'%}"></script>
+  <script src="{% static 'Member/assets/js/slick-slider.js'%}"></script>
+  <script src="{% static 'Member/assets/js/custom.js'%}"></script>
+  <script>
+      //according to loftblog tut
+      $('.nav li:first').addClass('active');
+
+      var showSection = function showSection(section, isAnimate) {
+        var
+        direction = section.replace(/#/, ''),
+        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+        reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $('body, html').animate({
+            scrollTop: reqSectionPos },
+          800);
+        } else {
+          $('body, html').scrollTop(reqSectionPos);
+        }
+
+      };
+
+      var checkSection = function checkSection() {
+        $('.section').each(function () {
+          var
+          $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var
+            currentId = $this.data('section'),
+            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+            reqLink.closest('li').addClass('active').
+            siblings().removeClass('active');
+          }
+        });
+      };
+
+      $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+        e.preventDefault();
+        showSection($(this).attr('href'), true);
+      });
+
+      $(window).scroll(function () {
+        checkSection();
+      });
+  </script>

@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Dream Build</title>
+
+        <!-- <link rel="icon" href="img/favicon.png" type="image/png"> -->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/css/bootstrap.min.css'%}" />
+        <!-- themefy CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/themefy_icon/themify-icons.css'%}" />
+        <!-- swiper slider CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/swiper_slider/css/swiper.min.css'%}" />
+        <!-- select2 CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/select2/css/select2.min.css'%}" />
+        <!-- select2 CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/niceselect/css/nice-select.css'%}" />
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/owl_carousel/css/owl.carousel.css'%}" />
+        <!-- gijgo css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/gijgo/gijgo.min.css'%}" />
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/font_awesome/css/all.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/vendors/tagsinput/tagsinput.css'%}" />
+        <!-- datatable CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/datatable/css/jquery.dataTables.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/vendors/datatable/css/responsive.dataTables.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/vendors/datatable/css/buttons.dataTables.min.css'%}" />
+        <!-- text editor css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/text_editor/summernote-bs4.css'%}" />
+        <!-- morris css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/morris/morris.css'%}">
+        <!-- metarial icon css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/material_icon/material-icons.css'%}" />
+
+        <!-- menu css  -->
+        <link rel="stylesheet" href="{%static 'Admin/css/metisMenu.css'%}">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/css/style.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/css/colors/default.css'%}" id="colorSkinCSS">
+        <link rel="stylesheet" href="{%static 'form.css'%}" />
+    </head>
+    <body class="crm_body_bg">
+
+
+
+        <!-- main content part here -->
+
+        <!-- sidebar  -->
+        <!-- sidebar part here -->
+        <nav class="sidebar">
+            <div class="logo d-flex justify-content-between">
+                <a href="index.html"><img src="{%static 'Admin/img/logo.png'%}" alt=""></a>
+                <div class="sidebar_close_icon d-lg-none">
+                    <i class="ti-close"></i>
+                </div>
+            </div>
+            <ul id="sidebar_menu">
+                <li class="side_menu_title">
+                    <span>Dashboard</span>
+                </li>
+                <li class="mm-active">
+                    <a  href="{% url 'Finance:homepage' %}"   aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/1.svg'%}" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                   
+                </li>
+                <li class="side_menu_title">
+                    <span>Applications</span>
+                </li>
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Account</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:myprofile' %}">Myprofile</a></li>
+                        <li><a href="{% url 'Finance:editprofile' %}">Editprofile</a></li>
+                        <li> <a href="{% url 'Finance:changepassword' %}">Change Password</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Chitty</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:chitty' %}">Add chitty</a></li>
+                        <li><a href="{% url 'Finance:chittyapplications' %}"> View Chitty Applications</a></li>
+                        <li><a href="{% url 'Finance:chittyacceptlist' %}">Chitty Accepted List</a></li>
+                        <li><a href="{% url 'Finance:chittyrejectlist' %}">Chitty Reject List</a></li>
+                          
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Loan</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:addloan' %}">Add Loan</a></li>
+                        <li><a href="{% url 'Finance:viewloanapplications' %}"> View Loan Applications</a></li>
+                        <li><a href="{% url 'Finance:loanacceptlist' %}">Loan accept List</a></li>
+                        <li><a href="{% url 'Finance:loanrejectlist' %}">Loan Reject List</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Monthly & Weekly Collection</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:weeklycollection' %}">Add weekly collection</a></li>
+                        <li><a href="{% url 'Finance:monthlycollection' %}">Add monthly collection</a></li>
+                        <li> <a href="{% url 'Finance:viewweeklycollectionpayment' %}">View weekly collection payment</a></li>
+                        <li><a href="{% url 'Finance:viewmonthlycollectionpayment' %}">View monthly collection payment</a></li>
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Scholarship</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:scholarshipacceptlist' %}">Add scholarship accept list</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Chitty Refunding</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:chittyfunding' %}"> View Chitty funding Applications</a></li>
+                        
+                        <li><a href="{% url 'Finance:chittyfundingacceptlist' %}">Chitty Funding Accepted List</a></li>
+                        
+                    </ul>
+                </li>
+
+                
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Complaint & Feedback</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:viewcomplaint' %}">View Complaint</a></li>
+                        <li><a href="{% url 'Finance:viewfeedback' %}">View Feedback</a></li>
+                        
+                          
+                    </ul>
+                </li>
+                 <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Report</span>
+                    </a>
+                    <ul>           
+                        
+                        
+                        
+                    </ul>
+                </li> 
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>LogOut</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Finance:logout' %}">LogOut</a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- sidebar part end -->
+        <!--/ sidebar  -->
+
+        {% block content %}
+
+        {% endblock content %}
+
+
+        <!-- footer  -->
+        <!-- jquery slim -->
+        <script src="{%static 'Admin/js/jquery-3.4.1.min.js'%}"></script>
+        <!-- popper js -->
+        <script src="{%static 'Admin/js/popper.min.js'%}"></script>
+        <!-- bootstarp js -->
+        <script src="{%static 'Admin/js/bootstrap.min.js'%}"></script>
+        <!-- sidebar menu  -->
+        <script src="{%static 'Admin/js/metisMenu.js'%}"></script>
+        <!-- waypoints js -->
+        <script src="{%static 'Admin/vendors/count_up/jquery.waypoints.min.js'%}"></script>
+        <!-- waypoints js -->
+        <script src="{%static 'Admin/vendors/chartlist/Chart.min.js'%}"></script>
+        <!-- counterup js -->
+        <script src="{%static 'Admin/vendors/count_up/jquery.counterup.min.js'%}"></script>
+        <!-- swiper slider js -->
+        <script src="{%static 'Admin/vendors/swiper_slider/js/swiper.min.js'%}"></script>
+        <!-- nice select -->
+        <script src="{%static 'Admin/vendors/niceselect/js/jquery.nice-select.min.js'%}"></script>
+        <!-- owl carousel -->
+        <script src="{%static 'Admin/vendors/owl_carousel/js/owl.carousel.min.js'%}"></script>
+        <!-- gijgo css -->
+        <script src="{%static 'Admin/vendors/gijgo/gijgo.min.js'%}"></script>
+        <!-- responsive table -->
+        <script src="{%static 'Admin/vendors/datatable/js/jquery.dataTables.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/dataTables.responsive.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/dataTables.buttons.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/buttons.flash.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/jszip.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/pdfmake.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/vfs_fonts.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/buttons.html5.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/buttons.print.min.js'%}"></script>
+
+        <script src="{%static 'Admin/js/chart.min.js'%}"></script>
+        <!-- progressbar js -->
+        <script src="{%static 'Admin/vendors/progressbar/jquery.barfiller.js'%}"></script>
+        <!-- tag input -->
+        <script src="{%static 'Admin/vendors/tagsinput/tagsinput.js'%}"></script>
+        <!-- text editor js -->
+        <script src="{%static 'Admin/vendors/text_editor/summernote-bs4.js'%}"></script>
+
+        <script src="{%static 'Admin/vendors/apex_chart/apexcharts.js'%}"></script>
+
+        <!-- custom js -->
+        <script src="{%static 'Admin/js/custom.js'%}"></script>
+
+        <script src="{%static 'Admin/vendors/apex_chart/bar_active_1.js'%}"></script>
+        <script src="{%static 'Admin/vendors/apex_chart/apex_chart_list.js'%}"></script>

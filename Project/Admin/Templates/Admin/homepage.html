@@ -1,0 +1,320 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>NSS Karayogam 4746</title>
+
+        <!-- <link rel="icon" href="img/favicon.png" type="image/png"> -->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/css/bootstrap.min.css'%}" />
+        <!-- themefy CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/themefy_icon/themify-icons.css'%}" />
+        <!-- swiper slider CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/swiper_slider/css/swiper.min.css'%}" />
+        <!-- select2 CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/select2/css/select2.min.css'%}" />
+        <!-- select2 CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/niceselect/css/nice-select.css'%}" />
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/owl_carousel/css/owl.carousel.css'%}" />
+        <!-- gijgo css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/gijgo/gijgo.min.css'%}" />
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/font_awesome/css/all.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/vendors/tagsinput/tagsinput.css'%}" />
+        <!-- datatable CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/datatable/css/jquery.dataTables.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/vendors/datatable/css/responsive.dataTables.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/vendors/datatable/css/buttons.dataTables.min.css'%}" />
+        <!-- text editor css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/text_editor/summernote-bs4.css'%}" />
+        <!-- morris css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/morris/morris.css'%}">
+        <!-- metarial icon css -->
+        <link rel="stylesheet" href="{%static 'Admin/vendors/material_icon/material-icons.css'%}" />
+
+        <!-- menu css  -->
+        <link rel="stylesheet" href="{%static 'Admin/css/metisMenu.css'%}">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="{%static 'Admin/css/style.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admin/css/colors/default.css'%}" id="colorSkinCSS">
+    </head>
+    <body class="crm_body_bg">
+
+
+
+        <!-- main content part here -->
+
+        <!-- sidebar  -->
+        <!-- sidebar part here -->
+        <nav class="sidebar">
+            <div class="logo d-flex justify-content-between">
+                <a href="index.html"><img src="img/logo.png" alt=""></a>
+                <div class="sidebar_close_icon d-lg-none">
+                    <i class="ti-close"></i>
+                </div>
+            </div>
+            <ul id="sidebar_menu">
+                <li class="side_menu_title">
+                    <span>Dashboard</span>
+                </li>
+                <li class="mm-active">
+                    <a  href="{% url 'Admin:homepage' %}" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/1.svg'%}" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                   
+                </li>
+                <li class="side_menu_title">
+                    <span>Applications</span>
+                </li>
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Basic Data</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Admin:district' %}">Place</a></li>
+                        <li><a href="{% url 'Admin:place' %}">Location</a></li>
+                        <li><a href="{% url 'Admin:proof' %}">Proof Type</a></li>
+                        <li><a href="{% url 'Admin:relationtype' %}">Relation Type</a></li>
+                        <li><a href="{% url 'Admin:scheme' %}">Scheme</a></li>
+                        <li><a href="{% url 'Admin:loan' %}">Loan Type</a></li>
+                        <li><a href="{% url 'Admin:scholarshiptype' %}">Scholarship Type</a></li>
+                        <li><a href="{% url 'Admin:events' %}">Add Events</a></li>
+                        
+                        <li><a href="{% url 'Admin:electionposition' %}">Election Position</a></li>
+                        <li><a href="{% url 'Admin:financehead' %}">Finance Head</a></li>
+                        <li><a href="{% url 'Admin:electiondeclaration' %}">Election Declaration</a></li>
+                        <li><a href="{% url 'Admin:scholarshipname' %}">Scholarship and Report</a></li>
+                        <li><a href="{% url 'Admin:memberadding' %}">Member Adding</a></li>
+                       
+                        
+                        
+                    </ul>
+                </li>
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Applications</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Admin:electionapplication' %}">Election  Nomination Applications</a></li>
+                        <li><a href="{% url 'Admin:scholarshipapplications' %}">Scholarship Applications</a></li>
+                        <li><a href="{% url 'Admin:scholarshipacceptlist' %}">Scholarship Accept Applications</a></li>
+                        <li><a href="{% url 'Admin:scholarshiprejectlist' %}">Scholarship Reject Applications</a></li>
+                        <li><a href="{% url 'Admin:electionapplyacceptlist' %}">Election Accept Applications </a></li>
+                    </ul>
+                </li>
+
+                        <li class="">
+                            <a   class="has-arrow" href="#" aria-expanded="false">
+                                <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                                <span>Vote</span>
+                            </a>
+                            <ul>
+                        <li><a href="{% url 'Admin:viewvote' %}">View Vote</a></li>
+                        <li><a href="{% url 'Admin:presidentvotings' %}">President Vote</a></li>
+                        <li><a href="{% url 'Admin:secretaryvotings' %}">Secretary Vote</a></li>
+                        <li><a href="{% url 'Admin:treasurervotings' %}">Treasurer Vote</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>Member & Relative List</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Admin:mlist' %}">Member List</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admin/img/menu-icon/2.svg'%}" alt="">
+                        <span>LogOut</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Admin:logout' %}">LogOut</a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- sidebar part end -->
+        <!--/ sidebar  -->
+
+
+        <section class="main_content dashboard_part">
+            <!-- menu  -->
+           
+            <!--/ menu  -->
+            <div class="main_content_iner ">
+                <div class="container-fluid p-0">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="single_element">
+                                <div class="quick_activity">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="quick_activity_wrap">
+                                                <div class="single_quick_activity d-flex">
+                                                    <div class="icon">
+                                                        <img src=" {%static 'img/icon/College.png'%}" alt="">
+                                                    </div>
+                                                    <div class="count_content">
+                                                        <h3><span class="counter">{{mcount}}</span> </h3>
+                                                        <p>Members</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single_quick_activity d-flex">
+                                                    <div class="icon">
+                                                        <img src=" {%static 'img/icon/Department.png'%}" alt="">
+                                                    </div>
+                                                    <div class="count_content">
+                                                        <h3><span class="counter">{{rcount}}</span> </h3>
+                                                        <p>Relatives</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single_quick_activity d-flex">
+                                                    <div class="icon">
+                                                        <img src=" {%static 'img/icon/professor.png'%}" alt="">
+                                                    </div>
+                                                    <div class="count_content">
+                                                        <h3><span class="counter">{{lcount}}</span> </h3>
+                                                        <p>Loans</p>
+                                                    </div>
+                                                </div>
+                                                <div class="single_quick_activity d-flex">
+                                                    <div class="icon">
+                                                        <img src=" {%static 'img/icon/Student.png'%}" alt="">
+                                                    </div>
+                                                    <div class="count_content">
+                                                        <h3><span class="counter">{{scount}}</span> </h3>
+                                                        <p>Scholorship</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-12">
+                            <div class="white_box card_height_100">
+                                <div class="box_header border_bottom_1px  ">
+                                    <div class="main-title">
+                                        <h3 class="mb_25">Members</h3>
+                                    </div>
+                                </div>
+                               
+                                <div class="staf_list_wrapper sraf_active owl-carousel">
+                                     {% for i in mdata %}
+                                    <!-- single carousel  -->
+                                    <div class="single_staf">
+                                        <div class="staf_thumb">
+                                            <img src="{{i.photo.url}}" alt="">
+                                        </div>
+                                        <h4>{{i.member_name}}</h4>
+                                        <p>{{i.contact}}</p>
+                                        
+                                    </div>
+                                   
+                                     {% endfor %}
+                                     
+                                </div>
+                                  <div class="box_header border_bottom_1px  ">
+                                    <div class="main-title">
+                                        <h3 class="mb_25">Relatives</h3>
+                                    </div>
+                                </div>
+                               
+                                <div class="staf_list_wrapper sraf_active owl-carousel">
+                                    {% for i in rdata %}
+                                    <!-- single carousel  -->
+                                    <div class="single_staf">
+                                        <div class="staf_thumb">
+                                            <img src="{{i.photo.url}}" alt="">
+                                        </div>
+                                        <h4>{{i.relative_name}}</h4>
+                                        <p>{{i.contact}}</p>
+                                        <p>Relates of {{i.member_name.member_name}}</p>
+                                        
+                                    </div>
+                                   
+                                     {% endfor %}
+                                     
+                                </div>  
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!-- main content part end -->
+
+        <!-- footer  -->
+        <!-- jquery slim -->
+        <script src="{%static 'Admin/js/jquery-3.4.1.min.js'%}"></script>
+        <!-- popper js -->
+        <script src="{%static 'Admin/js/popper.min.js'%}"></script>
+        <!-- bootstarp js -->
+        <script src="{%static 'Admin/js/bootstrap.min.js'%}"></script>
+        <!-- sidebar menu  -->
+        <script src="{%static 'Admin/js/metisMenu.js'%}"></script>
+        <!-- waypoints js -->
+        <script src="{%static 'Admin/vendors/count_up/jquery.waypoints.min.js'%}"></script>
+        <!-- waypoints js -->
+        <script src="{%static 'Admin/vendors/chartlist/Chart.min.js'%}"></script>
+        <!-- counterup js -->
+        <script src="{%static 'Admin/vendors/count_up/jquery.counterup.min.js'%}"></script>
+        <!-- swiper slider js -->
+        <script src="{%static 'Admin/vendors/swiper_slider/js/swiper.min.js'%}"></script>
+        <!-- nice select -->
+        <script src="{%static 'Admin/vendors/niceselect/js/jquery.nice-select.min.js'%}"></script>
+        <!-- owl carousel -->
+        <script src="{%static 'Admin/vendors/owl_carousel/js/owl.carousel.min.js'%}"></script>
+        <!-- gijgo css -->
+        <script src="{%static 'Admin/vendors/gijgo/gijgo.min.js'%}"></script>
+        <!-- responsive table -->
+        <script src="{%static 'Admin/vendors/datatable/js/jquery.dataTables.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/dataTables.responsive.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/dataTables.buttons.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/buttons.flash.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/jszip.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/pdfmake.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/vfs_fonts.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/buttons.html5.min.js'%}"></script>
+        <script src="{%static 'Admin/vendors/datatable/js/buttons.print.min.js'%}"></script>
+
+        <script src="{%static 'Admin/js/chart.min.js'%}"></script>
+        <!-- progressbar js -->
+        <script src="{%static 'Admin/vendors/progressbar/jquery.barfiller.js'%}"></script>
+        <!-- tag input -->
+        <script src="{%static 'Admin/vendors/tagsinput/tagsinput.js'%}"></script>
+        <!-- text editor js -->
+        <script src="{%static 'Admin/vendors/text_editor/summernote-bs4.js'%}"></script>
+
+        <script src="{%static 'Admin/vendors/apex_chart/apexcharts.js'%}"></script>
+
+        <!-- custom js -->
+        <script src="{%static 'Admin/js/custom.js'%}"></script>
+
+        <script src="{%static 'Admin/vendors/apex_chart/bar_active_1.js'%}"></script>
+        <script src="{%static 'Admin/vendors/apex_chart/apex_chart_list.js'%}"></script>
+    </body>

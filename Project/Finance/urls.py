@@ -1,0 +1,56 @@
+from Finance import views
+from django.urls import path
+app_name='Finance'
+urlpatterns = [
+    path('homepage/', views.homepage,name="homepage"),
+    path('myprofile/', views.myprofile,name="myprofile"),
+    path('editprofile/', views.editprofile,name="editprofile"),
+    path('chitty/', views.chitty,name="chitty"),
+    path('delcid/<int:cid>',views.deletechitty,name="deletechitty"),
+    path('chittyapplications/', views.chittyapplications,name="chittyapplications"),
+
+    path('chittyview/<int:cid>', views.chittyview,name="chittyview"),
+
+    path('chittyaccept/<int:amid>', views.chittyaccept,name="chittyaccept"),
+    path('chittyreject/<int:rmid>', views.chittyreject,name="chittyreject"),
+    path('chittyacceptlist/', views.chittyacceptlist,name="chittyacceptlist"),
+    path('chittyrejectlist/', views.chittyrejectlist,name="chittyrejectlist"),
+    path('addloan/', views.addloan,name="addloan"),
+    path('deleteloanname/<int:lnid>',views.deleteloanname,name="deleteloanname"),
+    path('view_loan_applications/', views.viewloanapplications,name="viewloanapplications"),
+    path('loan_accept_list/<int:alid>', views.loanaccept,name="loanaccept"),
+    path('loanreject/<int:rlid>', views.loanreject,name="loanreject"),
+    path('loan_reject_list/', views.loanrejectlist,name="loanrejectlist"),
+    path('loanacceptlist/', views.loanacceptlist,name="loanacceptlist"),
+    path('loancalender/<int:lid>', views.loancalender,name="loancalender"),
+    path('loangrant/<int:lgid>', views.loangrant,name="loangrant"),
+    path('loangviewloanrepayrant/<int:lid>', views.viewloanrepay,name="viewloanrepay"),
+    path('chittycalender/<int:cid>', views.chittycalender,name="chittycalender"),
+    path('deleteloancalender/<int:lid>',views.deleteloancalender,name="deleteloancalender"),
+    path('deletechittycalender/<int:cid>',views.deletechittycalender,name="deletechittycalender"),
+    path('chittygrant/<int:cgid>', views.chittygrant,name="chittygrant"),
+    path('viewchittypayment/<int:cid>', views.viewchittypay,name="viewchittypay"),
+    path('weeklycollection/', views.weeklycollection,name="weeklycollection"),
+     path('monthlycollection/', views.monthlycollection,name="monthlycollection"),
+    path('deletemonthlycollection/<int:mid>',views.deletemonthlycollection,name="deletemonthlycollection"),
+    path('deleteweeklycollection/<int:wid>',views.deleteweeklycollection,name="deleteweeklycollection"),
+    path('scholarshipacceptlist/', views.scholarshipacceptlist,name="scholarshipacceptlist"),
+    path('scholarshipgrant/<int:sgid>', views.scholarshipgrant,name="scholarshipgrant"),
+    path('viewweeklycollectionpayment/', views.viewweeklycollectionpayment,name="viewweeklycollectionpayment"),
+    path('viewmonthlycollectionpayment/', views.viewmonthlycollectionpayment,name="viewmonthlycollectionpayment"),
+    path('logout/', views.logout,name="logout"),
+    path('changepassword/', views.changepassword,name="changepassword"),
+     path('chittyreport/<int:cid>', views.chittyreport,name="chittyreport"),
+    path('loanreport/<int:lid>', views.loanreport,name="loanreport"),
+    path('chittyfunding/', views.chittyfunding,name="chittyfunding"),
+    path('chittyfundingaccept/<int:cfid>', views.chittyfundingaccept,name="chittyfundingaccept"),
+    path('chittyfundingreject/<int:rcfid>', views.chittyfundingreject,name="chittyfundingreject"),
+     path('chittyfundingacceptlist/', views.chittyfundingacceptlist,name="chittyfundingacceptlist"),
+      path('chittyfundinggrant/<int:cfgid>', views.chittyfundinggrant,name="chittyfundinggrant"),
+          path('viewcomplaint/', views.viewcomplaint,name="viewcomplaint"),
+    path('viewfeedback/', views.viewfeedback,name="viewfeedback"),
+    path('complaintreply/<int:cid>', views.complaintreply,name="complaintreply"),
+    
+
+]
+

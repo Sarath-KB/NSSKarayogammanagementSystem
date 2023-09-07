@@ -1,0 +1,65 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <h1></h1>
+        <table border="2" align="center" cellpadding="10" style="border-collapse: collapse;">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="txt_name"value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Details</td>
+                <td><input type="text" name="txt_details"value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Details</td>
+                <td><input type="date" name="txt_date"value="" required="" autocomplete="off"></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2" align="center" cellpadding="10">      
+               <input type="submit" name="save" value="Save">
+               <input type="reset" name="cancel" value="Cancel">
+               </td>
+           </tr>
+        </table>
+        <br><br>
+        <table border="1" align="center" cellpadding="10" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Event Name</td>
+                <td>Details</td>
+                <td>Date</td>
+                <td>Action</td>
+            </tr>
+           {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.details}}</td>
+            <td>{{i.event_date}}</td>
+            <td><a href="{% url 'Admin:deleteevents' i.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+        </form>
+</body>
+</html>
+{% endblock content %}

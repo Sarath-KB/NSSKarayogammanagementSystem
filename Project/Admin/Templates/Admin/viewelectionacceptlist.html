@@ -1,0 +1,47 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Member Name</td>
+                <td>Contact</td>
+                <td>Email</td>
+                <td>Election Name</td>
+                <td>Election position</td>
+                
+                
+            </tr>
+            {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.member_name.member_name}}</td>
+        <td>{{i.member_name.contact}}</td>
+        <td>{{i.member_name.email}}</td>
+        <td>{{i.election_name.title}}</td>
+        <td>{{i.election_position.election_position}}</td>
+        
+        
+    </tr>
+    {% endfor %}
+    </table>
+    </form>
+</body>
+</html>
+{% endblock content %}

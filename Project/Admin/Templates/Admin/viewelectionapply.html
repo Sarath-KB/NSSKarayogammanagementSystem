@@ -1,0 +1,56 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <td>Sl.no</td>
+            <td>Photo</td>
+            
+            <td>Name</td>
+            <td>Contact</td>
+            <td>Email</td>
+            <td>Election Name</td>
+            <td>Election position</td>
+           
+            <td>Action</td>
+        </tr>
+       {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td><img src="{{i.member_name.photo.url}}" width="150" height="150"></td>
+        
+        <td>{{i.member_name.member_name}}</td>
+        <td>{{i.member_name.contact}}</td>
+        <td>{{i.member_name.email}}</td>
+        <td>{{i.election_name.title}}</td>
+        <td>{{i.election_position.election_position}}</td>
+        <td><a href="{% url 'Admin:electionapplyaccept' i.id %}">Accept</a>|<a href="{% url 'Admin:electionapplyreject' i.id %}">Reject</a></td>
+        
+
+        
+    </tr>
+    
+    
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends 'Finance/Head.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table border="1" align="center" cellpadding="10">
+            <center><h1>Loan Report</h1></center>
+            <tr>
+                <td>Start Date</td>
+                <td><input type="date" name="fdate" id=""></td>
+                <td>End Date</td>
+                <td><input type="date" name="edate" id=""></td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center"><input type="submit" value="Show Results"></td>
+            </tr>
+        </table>
+        
+        <table border="2" align="center" cellpadding="10">
+            
+            <thead>
+                {% for i in data %}
+                <tr>
+                    <th>Sl.no</th>
+                    <th>Name of Applicant</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>{{ forloop.counter}}</td>
+                    <td>{{ i.member_name.member_name }}</td>
+                    <td>{{ i.member_name.contact }}</td>
+                    <td>{{ i.member_name.email }}</td>
+                </tr>
+                
+            </tbody>
+         
+        </table>
+        {% endfor %}
+
+</body>
+</html>
+{% endblock %}

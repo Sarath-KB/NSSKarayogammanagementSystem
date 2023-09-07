@@ -1,0 +1,75 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <table border="2" align="center" cellpadding="10" style="border-collapse: collapse;">
+            <center><h1> Add Finance head</h1></center>
+            <tr>
+                <td>Head Name</td>
+                <td><input type="text" name="txt_name"value="{{edit.head_name}}" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>User Name</td>
+                <td><input type="email" name="txt_username"value="" required="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="pass"value="" ></td>
+            </tr>
+            <tr>
+                <td>From Date</td>
+                <td><input type="date" name="fdate"value="" required=""></td>
+            </tr>
+            <tr>
+                <td>To Date</td>
+                <td><input type="date" name="tdate"value="" required=""></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">      
+               <input type="submit" name="save" value="Save">
+               <input type="reset" name="cancel" value="Cancel">
+               </td>
+           </tr>
+        </table>
+        <br><br>
+        <table border="1"  align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Head Name</td>
+                <td>User Name</td>
+                <td>From Date</td>
+                <td>To Date</td>
+                <td>Action</td>
+            </tr>
+           {% for i in finance %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.head_name}}</td>
+            <td>{{i.user_name}}</td>
+            <td>{{i.fdate}}</td>
+            <td>{{i.tdate}}</td>
+            <td><a href="{% url 'Admin:deletefinancehead' i.id %}">Delete</a>|<a href="{% url 'Admin:editfinancehead' i.id%}">Edit</a></td></td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</body>
+</html>
+{% endblock content %}
